@@ -39,4 +39,4 @@ production:
   pool: 5
   username: markid
   password: markid
-  socket: /var/run/mysqld/mysql.sock
+  host: localhost
