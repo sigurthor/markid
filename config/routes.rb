@@ -1,4 +1,6 @@
 MarkidWWW::Application.routes.draw do
+  get "home/index"
+
   get "bikes/index"
 
   get "bikes/show"
