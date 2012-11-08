@@ -10,6 +10,7 @@ gem 'rails_admin'
 #gem 'cancan'
 #gem 'devise'
 
+gem 'therubyracer'
 
 # Gems used only for assets and not required
 # in production environments by default.
