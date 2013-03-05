@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121019233856) do
+ActiveRecord::Schema.define(:version => 20130305073143) do
 
   create_table "bike_types", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(:version => 20121019233856) do
   create_table "bike_types_bikes", :id => false, :force => true do |t|
     t.integer "bike_type_id"
     t.integer "bike_id"
+  end
+
+  create_table "bike_variants", :force => true do |t|
+    t.string   "size"
+    t.string   "code"
+    t.integer  "stock"
+    t.integer  "bike_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "bikes", :force => true do |t|
@@ -38,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20121019233856) do
     t.text     "description"
     t.integer  "year"
     t.integer  "brand_id"
+    t.string   "image"
   end
 
   create_table "bikes_images", :id => false, :force => true do |t|

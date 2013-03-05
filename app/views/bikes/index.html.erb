@@ -1,44 +1,33 @@
-<script type="text/javascript" >
-  var sel_type = [];
+<script type="text/javascript">
+    var sel_type = [];
 
-  var bikes = <%= raw Bike.all.to_json %>
+    var bikes = <%= raw Bike.all.to_json %>
 
 
-          $(document).ready(function(){
+            $(document).ready(function () {
 
-          });
+            });
 </script>
 <h1>Hjól</h1>
 <p>Find me in app/views/bikes/index.html.erb</p>
+<% @filters.each do |filter| %>
+    <%= render 'filter', :filter => filter %>
+<% end %>
+
+
+
 <ul>
-  <% @types.each do |type| %>
-      <li data-id="<%= type.id %>"><%= type.name %></li>
-  <% end %>
-</ul>
-<ul>
-  <% @brands.each do |brand| %>
-      <li data-id="<%= brand.id %>"><%= brand.name %></li>
-  <% end %>
-</ul>
-<ul>
-  <% @gears.each do |gear| %>
-      <li data-id="<%= gear.id %>"> <%= gear.gears %></li>
-  <% end %>
-</ul>
-<ul>
-  <% @suspension.each do |sus| %>
-      <li data-id="<%= sus.id %>" > <%= sus.name %></li>
-  <% end %>
-</ul>
-<ul>
-  <% @types.each do |type| %>
-      <li>
-        <h2><%=  type.name %></h2>
-        <ul>
-          <% type.bikes.each do |bike| %>
-            <li data-id="<%= bike.id %>"><%=  bike.name %></li>
-          <% end %>
-        </ul>
-      </li>
-  <% end %>
+
+  <ul>
+    <% @bikes.each do |bike| %>
+        <li data-id="<%= bike.id %>">
+          <%= bike.name %>
+          <ul>
+            <% bike.bike_variants.each do |variant| %>
+                <%= variant.size %>
+            <% end %>
+          </ul>
+        </li>
+    <% end %>
+  </ul>
 </ul>

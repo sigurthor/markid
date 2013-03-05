@@ -8,6 +8,8 @@ gem 'rails', '3.2.6'
 gem 'mysql2'
 gem 'rails_admin'
 gem 'cancan'
+gem 'carrierwave'
+gem 'cloudinary'
 #gem 'devise'
 
 

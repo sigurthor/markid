@@ -1,0 +1,14 @@
+<% if params[filter[:model]] %>
+    <ul>
+      <li data-id="<%= filter[:data][0].id %>"><%= link_to filter[:data][0].name, params.clone.delete_if { |key| key == filter[:model] } %>
+        <span class="sum"><%= filter[:sum][filter[:data][0].id] %></span> clear
+      </li>
+    </ul>
+<% else %>
+    <ul>
+      <% filter[:data].each do |item| %>
+          <li data-id="<%= item.id %>"><%= link_to item.name, params.merge({filter[:model] => item.id}) %>
+            <span class="sum"><%= filter[:sum][item.id] %></span></li>
+      <% end %>
+    </ul>
+<% end %>

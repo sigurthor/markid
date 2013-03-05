@@ -89,15 +89,17 @@ RailsAdmin.config do |config|
     edit do
       field :name
       field :website
+      field :image, :carrierwave
       field :visible
       field :year
       field :brand
       field :suspension_type
       field :number_of_gears
-      field :fork
+      #field :fork
       field :description
       field :bike_types
-      field :images
+      #field :images
+      field :bike_variants
 
     end
 
@@ -117,6 +119,12 @@ RailsAdmin.config do |config|
   config.model SuspensionType do
     label 'Suspension'
     parent Bike
+  end
+
+  config.model BikeVariant do
+    object_label_method :size
+    label 'Variant'
+    parent 'bike'
   end
 
   # Your model's configuration, to help you get started:
